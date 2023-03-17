@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Motos</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+    </head>
+    <body>
+    <div class="container mt-5">
+                    <div class="row"> 
+                    <h1><strong><center>Registro de Motocicletas</center></strong></h1>
+                       
+                        <div class="col-md-3">
+                            <h2>Ingresar datos de Motocicleta</h2>
+                                <form action="agregar_moto.php" method="POST">
+
+                                    <input type="text" class="form-control mb-3" name="ID" placeholder="ID">
+                                    <input type="text" class="form-control mb-3" name="NOMBRE" placeholder="NOMBRE">
+                                    <input type="text" class="form-control mb-3" name="MARCA" placeholder="MARCA">
+                                    <input type="text" class="form-control mb-3" name="PRECIO" placeholder="PRECIO">
+                                    <input type="text" class="form-control mb-3" name="STOCK" placeholder="STOCK">
+
+                                    <input type="submit" class="btn btn-primary">
+                                </form>
+                        </div>
+                        <div class="col-md-8">
+                            <table class="table" >
+                                <thead class="table-success table-striped" >
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Marca</th>
+                                        <th>Precio</th>
+                                        <th>Stock</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <?php
+                                            foreach ($datos as $dato){
+                                        ?>
+                                            <tr>
+                                                <th><?php  echo $dato['ID']?></th>
+                                                <th><?php  echo $dato['NOMBRE']?></th>
+                                                <th><?php  echo $dato['MARCA']?></th>
+                                                <th><?php  echo $dato['PRECIO']?></th>
+                                                <th><?php  echo $dato['STOCK']?></th>    
+                                                <th><a href="index.php=<?php echo $dato['ID'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="index.php=<?php echo $dato['ID'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                            </tr>
+                                        <?php 
+                                            }
+                                        ?>
+                                </tbody>
+    </body>
+</html>
